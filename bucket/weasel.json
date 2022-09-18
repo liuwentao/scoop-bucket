@@ -1,8 +1,8 @@
 {
     "homepage": "https://rime.im/",
     "license": "GPL-3.0-or-later",
-    "version": "0.14.3.0",
-    "url": "https://github.com/fxliang/weasel/releases/download/0.14.3/weasel-0.14.3.0-installer.exe#/dl.7z",
+    "version": "0.14.3.91",
+    "url": "https://github.com/fxliang/weasel/releases/download/0.14.3_dev_0.91/weasel-0.14.3.91-installer.exe#/dl.7z",
     "hash": "de63dc2ef45d5b094a239fc704051270f3185bf9e883132532b7e17d2fdaf81b",
     "installer": {
         "script": [
@@ -11,11 +11,11 @@
             "& \"$dir\\WeaselServer.exe\""
         ]
     },
+    
     "post_install": "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse",
     "uninstaller": "\"$dir\\uninstall.exe\"",
     "checkver": {
-        "url": "https://github.com/fxliang/weasel/releases",
-        "regex": "/fxliang/weasel/releases/download/[\\d.]+_dev_[\\d.]+/weasel-([\\d.]+)-installer.exe"
+        "url": "https://github.com/fxliang/weasel"
     },
     "autoupdate": {
         "url": "https://github.com/fxliang/weasel/releases/download/$matchHead/weasel-$version-installer.exe#/dl.7z"
