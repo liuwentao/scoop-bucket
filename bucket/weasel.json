@@ -3,7 +3,7 @@
     "license": "GPL-3.0-or-later",
     "version": "0.14.3.92",
     "url": "https://github.com/fxliang/weasel/releases/download/0.14.3_dev_0.92/weasel-0.14.3.92-installer.exe#/dl.7z",
-    "hash": "bd88e8dbaea53a3bf51b154b310183230e9796d2f5ff53af92e3276585582ea7",
+    "hash": "326dc97cb610ba4f50d8fb7334f4fc38a458f18c51db1f8cf835f666a4e947e0",
     "installer": {
         "script": [
             "& \"$dir\\WeaselSetup.exe\" /i",
