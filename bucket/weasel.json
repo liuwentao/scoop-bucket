@@ -1,19 +1,29 @@
 {
     "homepage": "https://rime.im/",
     "license": "GPL-3.0-or-later",
-    "version": "0.14.3.92",
-    "url": "https://github.com/fxliang/weasel/releases/download/0.14.3_dev_0.92/weasel-0.14.3.92-installer.exe#/dl.7z",
-    "hash": "326dc97cb610ba4f50d8fb7334f4fc38a458f18c51db1f8cf835f666a4e947e0",
+    "version": "0.14.3.96",
+    "url": "https://github.com/fxliang/weasel/releases/download/0.14.3_dev_0.96p1/weasel-0.14.3.96p1-installer.exe#/dl.7z",
+    "hash": "7a0d97249b5ab686307e5f3aab0b48c24f7b8b139844e2d70ac4bcc344e2f9b8",
     "installer": {
         "script": [
-            "& \"$dir\\WeaselSetup.exe\" /i",
-            "& \"$dir\\WeaselDeployer.exe\" /install",
-            "& \"$dir\\WeaselServer.exe\""
+            "New-Item -Path \"HKCU:\\Software\\Rime\" | Out-Null",
+            "New-Item -Path \"HKCU:\\Software\\Rime\\Weasel\" | Out-Null",
+            "New-Item -Path \"HKCU:\\Software\\Rime\\Weasel\\Updates\" | Out-Null",
+            "New-ItemProperty -Path \"HKCU:\\Software\\Rime\\Weasel\\Updates\" -Name CheckForUpdates -Value \"0\" | Out-Null",
+            "Start-Process -Wait \"$dir\\WeaselSetup.exe\" \"/s\"",
+            "Start-Process \"$dir\\WeaselServer.exe\""
         ]
     },
+    "post_install": [
+        "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse",
+    ],
     
-    "post_install": "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse",
-    "uninstaller": "\"$dir\\uninstall.exe\"",
+    "uninstaller": {
+        "script": [
+            "Start-Process -Wait \"$dir\\WeaselServer.exe\"  \"/quit\"",
+            "Start-Process -Wait \"$dir\\WeaselSetup.exe\" \"/u\"",
+        ]
+    },
     "checkver": {
         "url": "https://github.com/fxliang/weasel"
     },
