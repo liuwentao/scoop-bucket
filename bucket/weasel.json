@@ -1,9 +1,9 @@
 {
     "homepage": "https://rime.im/",
     "license": "GPL-3.0-or-later",
-    "version": "0.14.3.96",
-    "url": "https://github.com/fxliang/weasel/releases/download/0.14.3_dev_0.96p1/weasel-0.14.3.96p1-installer.exe#/dl.7z",
-    "hash": "7a0d97249b5ab686307e5f3aab0b48c24f7b8b139844e2d70ac4bcc344e2f9b8",
+    "version": "0.14.3.97p1",
+    "url": "https://github.com/fxliang/weasel/releases/download/0.14.3_dev_0.97p1/weasel-0.14.3.97p1-installer.exe#/dl.7z",
+    "hash": "c863ed70fb6a016ca7c00782ecedd156ecf669d5d63da95afb4f951d3e399a7d",
     "installer": {
         "script": [
             "New-Item -Path \"HKCU:\\Software\\Rime\" | Out-Null",
@@ -15,13 +15,13 @@
         ]
     },
     "post_install": [
-        "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse",
+        "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse"
     ],
     
     "uninstaller": {
         "script": [
             "Start-Process -Wait \"$dir\\WeaselServer.exe\"  \"/quit\"",
-            "Start-Process -Wait \"$dir\\WeaselSetup.exe\" \"/u\"",
+            "Start-Process -Wait \"$dir\\WeaselSetup.exe\" \"/u\""
         ]
     },
     "checkver": {
