@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with Sublime &Merge]
+@="ÔÚ Sublime Merge ÖÐ´ò¿ª"
+"Icon"="$sublime-merge-path"
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with Sublime &Merge\command]
